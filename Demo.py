@@ -49,12 +49,6 @@ print(trans)
 
 import boto3
 
-AWSKey=[]
-
-with open("AWSKey.csv") as f:
-    for line in f:
-        AWSKey.append(line)
-
 comprehend = boto3.client('comprehend',
                               region_name = "us-east-2",
                               aws_access_key_id="AKIA4LSCBOB7257IG4F3",

@@ -1,7 +1,9 @@
 from moviepy.editor import *
 
+fps=44100;
+
 ac = AudioFileClip('S.mp4')
-ac.write_audiofile('Audio.wav',fps=16000, ffmpeg_params=["-ac", "1"])
+ac.write_audiofile('Audio.wav',fps=fps, ffmpeg_params=["-ac", "1"])
 
 import os
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "GCKey.json"
@@ -21,7 +23,7 @@ def transcribe_model_selection(speech_file, model):
 
     config = speech.RecognitionConfig(
         encoding=speech.RecognitionConfig.AudioEncoding.LINEAR16,
-        sample_rate_hertz=16000,
+        sample_rate_hertz=fps,
         language_code="en-US",
         enable_automatic_punctuation=True,
         model=model,
@@ -46,6 +48,12 @@ trans=transcribe_model_selection('Audio.wav',"default")
 print(trans)
 
 import boto3
+
+AWSKey=[]
+
+with open("AWSKey.csv") as f:
+    for line in f:
+        AWSKey.append(line)
 
 comprehend = boto3.client('comprehend',
                               region_name = "us-east-2",

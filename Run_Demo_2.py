@@ -1,8 +1,8 @@
 from DemoTestVersion import run_demo_2
 import csv
 
-path=r"voiceover"
-path_intro=r"into"
+path=r"voice"
+path_intro= r"intro"
 
 fileName_List,vText_List,gender_List,age_List,amazonDir_List=run_demo_2(path,path_intro)
 
@@ -14,11 +14,9 @@ with open('PersonInfo.csv', 'w', encoding='UTF-8', newline="") as f:
         name=""
 
         thisList=amazonDir_List[i]
-        print(thisList)
+
         for j in range(len(thisList)):
             thisDir=thisList[j]
-            print(thisDir)
-            print(type(thisDir))
             if type(thisDir)==type(""):
                 break
             else:

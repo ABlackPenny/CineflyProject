@@ -1,4 +1,4 @@
-## Use the MoviePy package to extract the audio from the video into a required format.
+## Use the MoviePy package to extract the audio from the video intro a required format.
 from moviepy.editor import *
 
 fps=44100;  # Set the audio bit rate, 44100Hz is a common high-fidelity MP3 standard.

@@ -86,6 +86,9 @@ def run_demo_2(path,path_intro):
                                       region_name="us-east-2",
                                       aws_access_key_id="AKIA4LSCBOB7257IG4F3",
                                       aws_secret_access_key="JI4aKwp9CqZpVWGC86zmlFACV6M7E29o3CAolimr")
+
+            if trans_intro=="":
+                trans_intro="dummy"
             phrases = comprehend.detect_pii_entities(Text=trans_intro, LanguageCode="en")
 
             entities = phrases['Entities']

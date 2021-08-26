@@ -52,9 +52,6 @@ def transcribe_model_selection(speech_file, model):
 
     return strALl;
 
-path=r"D:\2021 s2\8715\voiceover"
-path_intro=r"D:\2021 s2\8715\introduction"
-
 def run_demo_2(path,path_intro):
     fileName_List = []
     vText_List = []
@@ -63,7 +60,25 @@ def run_demo_2(path,path_intro):
     amazonDir_List = []
 
     files=os.listdir(path)
+
+    for filename in files:
+        portion = os.path.splitext(filename)
+        if portion[1]!=".mp4":
+            newname = portion[0]+".mp4"
+            filename=os.path.join(path,filename)
+            newname=os.path.join(path,newname)
+            os.rename(filename,newname)
+
     intro_list=os.listdir(path_intro)
+
+    for filename in intro_list:
+        portion = os.path.splitext(filename)
+        if portion[1]!=".mp4":
+            newname = portion[0]+".mp4"
+            filename=os.path.join(path_intro,filename)
+            newname=os.path.join(path_intro,newname)
+            os.rename(filename,newname)
+
     lenN=len(files)
 
     for i in range (0,lenN):
@@ -88,10 +103,12 @@ def run_demo_2(path,path_intro):
                                       aws_secret_access_key="JI4aKwp9CqZpVWGC86zmlFACV6M7E29o3CAolimr")
 
             if trans_intro=="":
-                trans_intro="dummy"
+                trans_intro="Empty"
             phrases = comprehend.detect_pii_entities(Text=trans_intro, LanguageCode="en")
 
             entities = phrases['Entities']
+            entities.append(trans_intro)
+
             amazonDir_List.append(entities)
         else:
             age_List.append("No intro clip to detect")

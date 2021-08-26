@@ -66,7 +66,7 @@ phrases = comprehend.detect_pii_entities(Text=trans, LanguageCode="en")
 # print(phrases)
 
 entities = phrases['Entities']
-
+# print(entities)
 
 #Save result in 'RstInfo.csv'
 with open('RstInfo.csv', 'w') as f:

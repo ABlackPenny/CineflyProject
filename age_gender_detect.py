@@ -97,7 +97,7 @@ def age_gender_detect (str_source,if_show_video=False):
             if faceBoxes[-1] == [0, 0, 0, 0]:
                 empty_frame2 += 1
                 if empty_frame2 == empty_rate:
-                    age_list.append("No enough faces detected, unknown age")
+                    age_list.append("Not enough faces detected, unknown age")
                     empty_frame2 = 0
             else:
                 age_list.append(age)

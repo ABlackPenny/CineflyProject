@@ -11,7 +11,7 @@ with open('PersonInfo.csv', 'w', encoding='UTF-8', newline="") as f:
     # for entity in allEntity
     #     csv.writer(f).writerow([entity['fileName'],entity['vText'],entity['gender'],entity['age']])
     for i in range(len(fileName_List)):
-        name=""
+        name="No name detected in intro clip"
 
         thisList=amazonDir_List[i]
 
@@ -20,8 +20,17 @@ with open('PersonInfo.csv', 'w', encoding='UTF-8', newline="") as f:
             if type(thisDir)==type(""):
                 break
             else:
-                if "AGE" in thisDir.keys():
-                    age_List[i]="("+thisDir["AGE"]+")"
+                if "AGE" in thisDir.values():
+                    itemList=list(thisDir.items())
+                    for k in range(len(itemList)):
+                        thisTup=itemList[k]
+                        if thisTup[1]=="AGE":
+                            bgn=itemList[k+1][1]
+                            end=itemList[k+2][1]
+                            break
+                    trans=thisList[-1]
+                    age="("+trans[bgn:end]+")"
+                    age_List[i]=age
                     break
 
         for j in range(len(thisList)):
@@ -29,10 +38,18 @@ with open('PersonInfo.csv', 'w', encoding='UTF-8', newline="") as f:
             if type(thisDir) == type(""):
                 break
             else:
-                if "NAME" in thisDir.keys():
-                    name=thisDir["NAME"]
+                if "NAME" in thisDir.values():
+                    itemList=list(thisDir.items())
+                    for k in range(len(itemList)):
+                        thisTup=itemList[k]
+                        if thisTup[1]=="NAME":
+                            bgn=itemList[k+1][1]
+                            end=itemList[k+2][1]
+                            break
+                    trans=thisList[-1]
+                    name=trans[bgn:end]
                     break
         csv.writer(f).writerow([fileName_List[i],name,age_List[i],gender_List[i],vText_List[i]])
     # for i in range(len(allEntity)):
     #     csv.writer(f).writerow([allEntity[i]['fileName'],allEntity[i]['gender'],allEntity[i]['age'],allEntity[i]['vText']])
-    f.close
+f.close

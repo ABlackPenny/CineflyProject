@@ -123,4 +123,4 @@ def age_gender_detect (str_source,if_show_video=False):
 
     return max_key,max_key_gender
 
-    print("Age & gender detection finished")
+    # print("Age & gender detection finished")

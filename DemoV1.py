@@ -58,8 +58,8 @@ import boto3
 #Amazon Key config
 comprehend = boto3.client('comprehend',
                               region_name = "us-east-2",
-                              aws_access_key_id="AKIA4LSCBOB7257IG4F3",
-                              aws_secret_access_key="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")
+                              aws_access_key_id="",
+                              aws_secret_access_key="")
 phrases = comprehend.detect_pii_entities(Text=trans, LanguageCode="en")
 # for i in range(0,len(phrases['Entities'])):
 #     print((phrases['KeyPhrases'][i]['Text']))

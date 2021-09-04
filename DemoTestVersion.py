@@ -96,11 +96,12 @@ def run_demo_2(path, path_intro):
                 trans_intro = transcribe_model_selection(intro_Name + 'Audio.wav', "default")
                 age_List.append(age)
                 gender_List.append(gender)
-
+                
+                #Amazon Key config
                 comprehend = boto3.client('comprehend',
                                           region_name="us-east-2",
-                                          aws_access_key_id="AKIA4LSCBOB7257IG4F3",
-                                          aws_secret_access_key="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")
+                                          aws_access_key_id="",
+                                          aws_secret_access_key="")
 
                 if trans_intro == "":
                     trans_intro = "Empty"

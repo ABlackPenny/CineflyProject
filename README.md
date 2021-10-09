@@ -21,7 +21,7 @@ Other files:
 <br/>&emsp; mask_rcnn_coco.h5 (pre-trained model used in Demo 4)<br/>&emsp; README.md<br/>
 
 Output example:
-<br/>&emsp; The Google key used by each demo was not included in the final delivery. You need to download the service key of Google Cloud, rename it to "GCKey.jason", and place it in the project directory.
+<br/>&emsp; The Google key used by each demo was not included in the final delivery. You need to download the service key of Google Cloud, rename it to "GCKey.json", and place it in the project directory.
 <br/></br>
 
 ## c. Functions and usage description

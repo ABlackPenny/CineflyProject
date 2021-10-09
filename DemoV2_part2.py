@@ -1,4 +1,4 @@
-from DemoTestVersion import run_demo_2
+from DemoV2_part1 import run_demo_2
 import csv
 
 path = r"voice"
@@ -20,7 +20,6 @@ with open('PersonInfo.csv', 'w', encoding='UTF-8', newline="") as f:
             if type(thisDir) == type(""):
                 break
             else:
-                ##考虑加入概率判断
                 if "AGE" in thisDir.values():
                     itemList = list(thisDir.items())
                     for k in range(len(itemList)):

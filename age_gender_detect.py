@@ -7,7 +7,7 @@ def age_gender_detect (str_source,if_show_video=False):
 
     # str_source = input("dir：")
     video = cv2.VideoCapture(str_source)
-    fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+    # fourcc = cv2.VideoWriter_fourcc(*'mp4v')
     # out = cv2.VideoWriter('age+gender.mp4', fourcc, float(video.get(cv2.CAP_PROP_FPS)),
     #                       (int(video.get(cv2.CAP_PROP_FRAME_WIDTH)), int(video.get(cv2.CAP_PROP_FRAME_HEIGHT))))
 
@@ -84,7 +84,7 @@ def age_gender_detect (str_source,if_show_video=False):
             if faceBoxes[-1] == [0, 0, 0, 0]:
                 empty_frame1 += 1
                 if empty_frame1 == empty_rate:
-                    gender_list.append("No enough faces detected, unknown gender")
+                    gender_list.append("Not enough faces detected, unknown gender")
                     empty_frame1 = 0
             else:
                 gender_list.append(str(gender))
@@ -120,7 +120,8 @@ def age_gender_detect (str_source,if_show_video=False):
     # out.release()
     video.release()
     cv2.destroyAllWindows()
+    return_dic = {'gender': counter_gender, 'age': counter}
 
-    return max_key,max_key_gender
+    return max_key,max_key_gender, return_dic
 
     # print("Age & gender detection finished")

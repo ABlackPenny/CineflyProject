@@ -5,6 +5,7 @@
 This project developed an algorithm for Cinefly to use machine learning technology to extract key information from videos and build user profiles.
 
 This project adopts agile development management method and is divided into two development stages. This user manual provides an explanation of the output of the second phase of the project.
+<br/></br>
 
 ## b. Code Structure
 
@@ -20,7 +21,8 @@ Other files:
 <br/>&emsp; mask_rcnn_coco.h5 (pre-trained model used in Demo 4)<br/>&emsp; README.md<br/>
 
 Output example:
-<br/>&emsp; The Google key used by each demo was not included in the final delivery. You need to download the service key of Google Cloud, rename it to "GCKey.jason", and place it in the project directory.<br/>
+<br/>&emsp; The Google key used by each demo was not included in the final delivery. You need to download the service key of Google Cloud, rename it to "GCKey.jason", and place it in the project directory.
+<br/></br>
 
 ## c. Functions and usage description
 
